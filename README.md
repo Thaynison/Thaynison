@@ -52,6 +52,15 @@
 ![mac-os](https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=apple&logoColor=white)
 ![widnwons](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
 ![vs-code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=Visual-Studio-Code&logoColor=white)
+![vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+
+### Designer and Tools
+
+#### :wrench: Tools and environments
+
+![vercel](https://aleen42.github.io/badges/src/photoshop.svg)
+![vercel](https://aleen42.github.io/badges/src/illustrator.svg)
+![vercel](https://aleen42.github.io/badges/src/after_effects.svg)
 
 <p align="center">
     <a align="center" href="https://cidadepixel.vercel.app" target="blank">
