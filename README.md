@@ -1,5 +1,5 @@
 <h1 align="center">Olá 👋, Me chamo Thaynison</h1>
-<h3 align="center">Fullstack Brasil developer</h3>
+<h3 align="center">Sou programador Fullstack</h3>
 
 - 👨‍💻 Todos os meus projetos estão disponíveis em [https://github.com/Thaynison](https://github.com/Thaynison)
 - 📫 Contato **cthaynison@outlook.com.br**
