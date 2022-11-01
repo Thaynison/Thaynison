@@ -5,7 +5,7 @@
 - 📫 Contato **cthaynison@outlook.com.br**
 - ⚡ Fato aleatório **Sou eletrecista**
 
-<h3 align="left">Connect with me:</h3>
+<h3 align="left">Minhas redes sociais:</h3>
 <p align="left">
   <a href="https://twitter.com/ThaynisonC" target="blank"><img align="center" src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="ThaynisonC" /></a>
   <a href="https://instagram.com/cthaynison" target="blank"><img align="center" src="https://img.shields.io/badge/Instagram-405DE6?style=for-the-badge&logo=instagram&logoColor=white" alt="cthaynison" /></a>
