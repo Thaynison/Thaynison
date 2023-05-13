@@ -170,6 +170,17 @@ main .box2 .divu .minbox .texts h2 {
         align-items: center;
         justify-content: center;
     }
+    main .box2 .divu .minbox {
+        max-width: 80%;
+        min-height: 50%;
+        background-color: rgb(228, 228, 228);
+        margin-top: 20px;
+        border-radius: 20px;
+        background-image: url('imgs/blackondas.png');
+        background-position: bottom;
+        background-repeat: repeat-x;
+        background-size: 30% auto;
+    }
     main .box2 .divu .minbox .texts {
         width: 100%;
         display: flex;
