@@ -170,4 +170,21 @@ main .box2 .divu .minbox .texts h2 {
         align-items: center;
         justify-content: center;
     }
+    main .box2 .divu .minbox .texts {
+        width: 100%;
+        display: flex;
+    }
+    main .box2 .divu .minbox .texts h1 {
+        color: black;
+        margin-left: 10px;
+        margin-bottom: -10px;
+        font-size: 10px;
+    }
+    main .box2 .divu .minbox .texts h2 {
+        color: black;
+        margin-left: 10px;
+        margin-bottom: -8px;
+        font-size: 15px;
+    }
+    
 }
