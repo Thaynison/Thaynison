@@ -5,7 +5,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         const CLIENT_ID = '1054105105064013975'; // Insira o seu Client ID do Discord aqui
-        const REDIRECT_URI = 'http://127.0.0.1:5500/paginas/dashboard.html'; // URL de redirecionamento após o login
+        const REDIRECT_URI = 'https://thaynison.vercel.app/paginas/dashboard.html'; // URL de redirecionamento após o login
     
         function loginWithDiscord() {
             window.location.href = `https://discord.com/api/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=token&scope=identify`;
