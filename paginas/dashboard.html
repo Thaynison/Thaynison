@@ -3,9 +3,10 @@
 <head>
     <title>Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="css/dashboard.css">
     <script>
-        const token = getTokenFromURL(); // Função para obter o token de acesso da URL
-        getUserData(token); // Função para obter os dados do usuário usando o token
+        const token = getTokenFromURL();
+        getUserData(token);
 
         function getTokenFromURL() {
             const params = new URLSearchParams(window.location.hash.substr(1));
@@ -30,8 +31,14 @@
     </script>
 </head>
 <body>
-    <h1>Dashboard</h1>
-    <h2>Bem-vindo, <span id="username"></span>!</h2>
-    <h3>Seu ID: <span id="userid"></span></h3>
+    <header>
+        <div class="txt">
+            <h1>Thaynison Community®</h1>
+        </div>
+        <div id="user-info" class="infors">
+            <h2>Olá, <span id="username"></span>!</h2>
+            <a href="../index.html"><img src="../imgs/saida.png" alt=""></a>
+        </div>        
+    </header>
 </body>
 </html>

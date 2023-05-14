@@ -5,6 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script>
+        const CLIENT_ID = '1054105105064013975'; // Insira o seu Client ID do Discord aqui
+        const REDIRECT_URI = 'https://thaynison.vercel.app/paginas/dashboard.html'; // URL de redirecionamento após o login
+    
+        function loginWithDiscord() {
+            window.location.href = `https://discord.com/api/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=token&scope=identify`;
+        }
+    </script>
     <title>Thaynison Community®</title>
 </head>
 <body>
@@ -13,9 +21,7 @@
             <h1>Thaynison Community®</h1>
         </div>
         <div class="btn">
-            <button><a href="/paginas/dashboard.html">Dashboard</a></button>
-            <button><a href="/paginas/loja.html">Loja</a></button>
-            <button><a href="/paginas/login.html">Login</a></button>
+            <button onclick="loginWithDiscord()"><a>Entrar</a></button>
         </div>
     </header>
     <main>
@@ -60,6 +66,18 @@
                         <h1>⚡ Sistema de alertas de ações;</h1>
                         <h1>⚡ Sistema de licença;</h1>
                         <h1>⚡ Sistema de relatórios;</h1>
+                    </div>
+                </div>
+                <div class="minbox">
+                    <div class="info">
+                        <img src="imgs/galinha.jpg" alt="">
+                        <h1>Thaynison Couto</h1>
+                    </div>
+                    <div class="texts">
+                        <h2>Sistema de Login:</h2>
+                        <h1>⚡ Login usando discord;</h1>
+                        <h1>⚡ Envio de webhook;</h1>
+                        <h1>⚡ Sistema de compras online;</h1>
                     </div>
                 </div>
             </div>

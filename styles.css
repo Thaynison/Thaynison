@@ -37,10 +37,11 @@ header .btn button {
     height: 30px;
     border-radius: 20px;
     background-color: transparent;
-    border-color: transparent;
+    border-color: white;
     color: white;
     cursor: pointer;
     text-align: center;
+    font-size: 16px;
 }
 
 main {
