@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const token = getTokenFromURL(); // Função para obter o token de acesso da URL
+        getUserData(token); // Função para obter os dados do usuário usando o token
+
+        function getTokenFromURL() {
+            const params = new URLSearchParams(window.location.hash.substr(1));
+            return params.get('access_token');
+        }
+
+        function getUserData(token) {
+            axios.get('https://discord.com/api/users/@me', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            .then(response => {
+                const userData = response.data;
+                document.getElementById('username').textContent = userData.username;
+                document.getElementById('userid').textContent = userData.id;
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <h2>Bem-vindo, <span id="username"></span>!</h2>
+    <h3>Seu ID: <span id="userid"></span></h3>
+</body>
+</html>
