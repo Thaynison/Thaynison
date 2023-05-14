@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja</title>
+    <link rel="stylesheet" href="css/loja.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="icon" href="../imgs/logo.png" type="image/png">
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const username = params.get('username');
+            const userid = params.get('userid');
+            document.getElementById('username').textContent = username;
+            document.getElementById('userid').textContent = userid;
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="txt">
+            <h1>Loja</h1>
+        </div>
+        <div id="user-info" class="infors">
+            <h2>Olá, <span id="username"></span>!</h2>
+            <h2 style="display: none;">Olá, <span id="userid"></span>!</h2>
+            <a href="../index.html"><img src="../imgs/saida.png" alt=""></a>
+        </div>        
+    </header>
+
+  <main>
+    <section class="container">
+        <h2>Produtos em Destaque</h2>
+        <div id="product-container" class="product">
+            <!-- Os produtos serão adicionados dinamicamente aqui -->
+        </div>
+    </section>
+  </main>
+</body>
+</html>
+<!-- Thaynison Community® -->
+<script>
+    function loadProducts() {
+    fetch('../documentos/dados.json')
+        .then(response => response.json())
+        .then(data => {
+        const productContainer = document.getElementById('product-container');
+
+        // Iterar sobre os produtos no objeto JSON
+        for (const key in data.Products) {
+            if (data.Products.hasOwnProperty(key)) {
+            const product = data.Products[key];
+
+            // Criar elementos HTML para cada produto
+            const productDiv = document.createElement('div');
+            productDiv.classList.add('product');
+
+            const image = document.createElement('img');
+            image.src = product.Image;
+            image.alt = product.Nome;
+            productDiv.appendChild(image);
+
+            const productName = document.createElement('h3');
+            productName.textContent = product.Nome;
+            productDiv.appendChild(productName);
+
+            const productDescription = document.createElement('p');
+            productDescription.textContent = product.Descricao;
+            productDiv.appendChild(productDescription);
+
+            const productValor = document.createElement('p');
+            productValor.textContent = `R$ ${product.Valor}`;
+            productDiv.appendChild(productValor);
+
+            const buyButton = document.createElement('button');
+            buyButton.textContent = 'Comprar';
+            const randomId = Math.random().toString(36).substr(2, 9);
+            buyButton.id = randomId;
+            buyButton.setAttribute('data-button-id', randomId); // Armazena o ID do botão em um atributo personalizado
+            productDiv.appendChild(buyButton);
+
+            buyButton.addEventListener('click', () => {
+            const params = new URLSearchParams(window.location.search);
+            const username = params.get('username');
+            const userid = params.get('userid');
+            const buyButtonValue = buyButton.getAttribute('data-button-id'); // Recupera o ID do botão
+            const productNameValue = productName.textContent; // Obtém o nome do produto
+
+            const webhookUrl = 'https://discordapp.com/api/webhooks/1107412399838986372/CGgDRPQSxW-X4CbcKeReDLJPBj3oWYZyRpWhagbZ3Ai9f8h1C6bblxoj22Z5Q1Hdqoov';
+
+            const payload = {
+                username: 'Thaynison Community®',
+                content: `O usuário ${username}, de ID ${userid}, comprou o item ${productNameValue} com o ID ${buyButtonValue}.`
+            };
+
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+                .then(response => {
+                if (response.ok) {
+                    console.log('Webhook enviada com sucesso!');
+                } else {
+                    console.log('Erro ao enviar a webhook. Código de status:', response.status);
+                }
+                })
+                .catch(error => {
+                console.log('Erro ao enviar a webhook:', error);
+                });
+            });
+            
+            // Adicionar o produto ao contêiner
+            productContainer.appendChild(productDiv);
+            }
+        }
+        })
+        .catch(error => console.error('Erro ao carregar os produtos:', error));
+    }
+    window.addEventListener('load', loadProducts);
+</script>
+

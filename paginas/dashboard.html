@@ -5,7 +5,6 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="icon" href="../imgs/logo.png" type="image/png">
-
     <script>
         const token = getTokenFromURL();
         getUserData(token);
@@ -35,12 +34,24 @@
 <body>
     <header>
         <div class="txt">
-            <h1>Thaynison Community®</h1>
+            <h1>Dashboard</h1>
         </div>
         <div id="user-info" class="infors">
             <h2>Olá, <span id="username"></span>!</h2>
+            <h2 style="display: none;">Olá, <span id="userid"></span>!</h2>
             <a href="../index.html"><img src="../imgs/saida.png" alt=""></a>
         </div>        
     </header>
+    <main>
+        <button onclick="redirecionarParaLoja()">Loja</button>
+        <script>
+            function redirecionarParaLoja() {
+                const username = document.getElementById('username').textContent;
+                const userid = document.getElementById('userid').textContent;
+                // window.location.href = `loja.html?username=${encodeURIComponent(username)}`;
+                window.location.href = `loja.html?username=${encodeURIComponent(username)}&userid=${encodeURIComponent(userid)}`;
+            }
+        </script>
+    </main>
 </body>
 </html>

@@ -1,0 +1,22 @@
+{
+    "Products": {
+        "Um": {
+            "Nome": "Concessionaria",
+            "Descricao": "Script de concessionaria",
+            "Valor": "12.000,00",
+            "Image": "/imgs/script.png"
+        },
+        "Dois": {
+            "Nome": "Imobiliaria",
+            "Descricao": "Script de imobiliaria",
+            "Valor": "10.000,00",
+            "Image": "/imgs/script.png"
+        },
+        "Tres": {
+            "Nome": "Muamba",
+            "Descricao": "Script de muamba",
+            "Valor": "15.000,00",
+            "Image": "/imgs/script.png"
+        }
+    }
+}
