@@ -30,12 +30,15 @@ function uploadFile(file, filename) {
       headers: headers,
       body: JSON.stringify(body)
     })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Arquivo enviado com sucesso:', data);
+      .then(response => {
+        if (response.ok) {
+          console.log('Arquivo enviado com sucesso');
+        } else {
+          throw new Error('Erro ao enviar o arquivo');
+        }
       })
       .catch(error => {
-        console.error('Erro ao enviar o arquivo:', error);
+        console.error(error);
       });
   };
 
