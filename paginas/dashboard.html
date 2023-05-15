@@ -4,7 +4,13 @@
     <title>Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="./css/aviso.css">
     <link rel="icon" href="../imgs/logo.png" type="image/png">
+    <style>
+        .avisos {
+            display: none;
+        }
+    </style>
     <script>
         const token = getTokenFromURL();
         getUserData(token);
@@ -30,6 +36,47 @@
             });
         }
     </script>
+    <script>
+        function redirecionarParaLoja() {
+            const username = document.getElementById('username').textContent;
+            const userid = document.getElementById('userid').textContent;
+            // window.location.href = `loja.html?username=${encodeURIComponent(username)}`;
+            window.location.href = `loja.html?username=${encodeURIComponent(username)}&userid=${encodeURIComponent(userid)}`;
+        }
+        function redirecionarParaPainel() {
+            const username = document.getElementById('username').textContent;
+            const userid = document.getElementById('userid').textContent;
+            
+            const allowedUserIds = ['302921790185799682']; // Insira os userids permitidos aqui
+            
+            const avisos = document.getElementsByClassName('avisos');
+
+            if (allowedUserIds.includes(userid)) {
+                for (let i = 0; i < avisos.length; i++) {
+                avisos[i].style.display = 'none';
+                }
+                window.location.href = `painel.html?username=${encodeURIComponent(username)}&userid=${encodeURIComponent(userid)}`;
+            } else {
+                for (let i = 0; i < avisos.length; i++) {
+                avisos[i].style.display = 'block';
+                avisos[i].style.animation = 'slideInRight 1s forwards';
+                }
+
+                setTimeout(() => {
+                for (let i = 0; i < avisos.length; i++) {
+                    avisos[i].style.animation = 'slideOutLeft 1s forwards';
+
+                    setTimeout(() => {
+                    avisos[i].style.display = 'none';
+                    }, 1000); // 1 segundo após a animação de saída
+                }
+                }, 10000); // 1 minuto (60000 milissegundos)
+            }
+        }
+        function redirecionarParaServidor() {
+            window.location.href = `https://discord.gg/MhGkDatFns`;
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -40,32 +87,30 @@
             <h2>Olá, <span id="username"></span>!</h2>
             <h2 style="display: none;">Olá, <span id="userid"></span>!</h2>
             <a href="../index.html"><img src="../imgs/saida.png" alt=""></a>
+
         </div>        
     </header>
     <main>
-        <button onclick="redirecionarParaLoja()">Loja</button>
-        <button onclick="redirecionarParaPainel()">Painel</button>
-        <script>
-            function redirecionarParaLoja() {
-                const username = document.getElementById('username').textContent;
-                const userid = document.getElementById('userid').textContent;
-                // window.location.href = `loja.html?username=${encodeURIComponent(username)}`;
-                window.location.href = `loja.html?username=${encodeURIComponent(username)}&userid=${encodeURIComponent(userid)}`;
-            }
-            function redirecionarParaPainel() {
-                const username = document.getElementById('username').textContent;
-                const userid = document.getElementById('userid').textContent;
-                
-                const allowedUserIds = ['302921790185799682']; // Insira os userids permitidos aqui
-                
-                if (allowedUserIds.includes(userid)) {
-                    window.location.href = `painel.html?username=${encodeURIComponent(username)}&userid=${encodeURIComponent(userid)}`;
-                } else {
-                    alert('Acesso não autorizado!');
-                    // Ou redirecione para outra página, exiba uma mensagem de erro, etc.
-                }
-            }
-        </script>
+        <div class="dash">
+            <div class="btns">
+                <button onclick="redirecionarParaLoja()">Loja</button>
+                <button onclick="redirecionarParaPainel()">Painel</button>
+                <button onclick="redirecionarParaServidor()">Servidor</button>
+            </div>
+        </div>
+        <div class="dashimg">
+        </div>
     </main>
+    <div class="avisos">
+        <section class="avisosdados">
+            <h1><img src="../imgs/galinha.jpg">Importante:</h1>
+        </section>
+        <section class="avisostexts">
+            <h1>Área restrita, você não é um administrador de nosso site!</h1>
+        </section>
+        <section class="avisosdireitos">
+            <h1>Thaynison Community® Todos os direitos reservados.</h1>
+        </section>
+    </div>
 </body>
 </html>
