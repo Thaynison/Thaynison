@@ -55,8 +55,15 @@
             function redirecionarParaPainel() {
                 const username = document.getElementById('username').textContent;
                 const userid = document.getElementById('userid').textContent;
-                // window.location.href = `loja.html?username=${encodeURIComponent(username)}`;
-                window.location.href = `painel.html?username=${encodeURIComponent(username)}&userid=${encodeURIComponent(userid)}`;
+                
+                const allowedUserIds = ['302921790185799682']; // Insira os userids permitidos aqui
+                
+                if (allowedUserIds.includes(userid)) {
+                    window.location.href = `painel.html?username=${encodeURIComponent(username)}&userid=${encodeURIComponent(userid)}`;
+                } else {
+                    alert('Acesso não autorizado!');
+                    // Ou redirecione para outra página, exiba uma mensagem de erro, etc.
+                }
             }
         </script>
     </main>
