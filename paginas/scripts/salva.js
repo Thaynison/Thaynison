@@ -2,41 +2,69 @@ document.addEventListener("DOMContentLoaded", function() {
     salvarDados();
 });
 
+// Função para salvar o documento no repositório do GitHub
 function salvarDados() {
-    const repoUrl = 'https://api.github.com/repos/Thaynison/Thaynison';
-    const arquivos = [
-      { nome: 'comandos.json', dados: { /* dados comandos */ } },
-      { nome: 'dados.json', dados: { /* dados dados */ } }
-    ];
+    const token = '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';
+    const repoOwner = 'Thaynison';
+    const repoName = 'Thaynison';
+    const pasta = 'documentos';
   
-    arquivos.forEach(async (arquivo) => {
-        var pastDocument = document.getElementById("pastDocument");
-        pastDocument.style.display = "none";
-
-      const url = `${repoUrl}/contents/documentos/${arquivo.nome}`;
-      const dadosJson = JSON.stringify(arquivo.dados);
+    const comandosJson = { /* Seus dados do comandos.json */ };
+    const dadosJson = { /* Seus dados do dados.json */ };
   
-      try {
-        const response = await fetch(url, {
+    // Função para criar/atualizar um arquivo no repositório
+    async function criarOuAtualizarArquivo(nomeArquivo, conteudoArquivo) {
+        
+      const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/tree/main/${pasta}/${nomeArquivo}`;
+  
+      // Obter o conteúdo atual do arquivo, se existir
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+  
+      let commitMessage = '';
+  
+      if (response.ok) {
+        // Arquivo existe, atualizar conteúdo
+        const fileSha = data.sha;
+        commitMessage = `Atualizar ${nomeArquivo}`;
+  
+        await fetch(apiUrl, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer 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'
+            'Authorization': `Bearer ${token}`
           },
           body: JSON.stringify({
-            message: `Upload do arquivo ${arquivo.nome}`,
-            content: btoa(dadosJson)
+            message: commitMessage,
+            content: btoa(unescape(encodeURIComponent(conteudoArquivo))),
+            sha: fileSha
           })
         });
+      } else {
+        // Arquivo não existe, criar novo arquivo
+        commitMessage = `Criar ${nomeArquivo}`;
   
-        if (response.ok) {
-          console.log(`O arquivo ${arquivo.nome} foi salvo com sucesso.`);
-        } else {
-          console.error(`Erro ao salvar o arquivo ${arquivo.nome}.`);
-        }
-      } catch (error) {
-        console.error(`Erro ao salvar o arquivo ${arquivo.nome}:`, error);
+        await fetch(apiUrl, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({
+            message: commitMessage,
+            content: btoa(unescape(encodeURIComponent(conteudoArquivo)))
+          })
+        });
       }
-    });
+
+      var pastDocument = document.getElementById("pastDocument");
+      pastDocument.style.display = "none";
+  
+      console.log(`${commitMessage}: ${nomeArquivo}`);
+    }
+  
+    // Chamar a função para criar/atualizar os arquivos
+    criarOuAtualizarArquivo('comandos.json', JSON.stringify(comandosJson));
+    criarOuAtualizarArquivo('dados.json', JSON.stringify(dadosJson));
 }
   
