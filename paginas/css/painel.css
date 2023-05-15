@@ -1,0 +1,224 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 30%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    image-orientation: none;
+}
+
+header h1 {
+    color: white;
+}
+
+header h2 {
+    color: white;
+    font-size: 20px;
+}
+
+header .txt {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+header .infors {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+header .infors a {
+    cursor: pointer;
+}
+
+header .infors img {
+    margin-left: 20px;
+    width: 25px;
+    height: 25px;
+}
+ 
+main {
+    width: 100%;
+    height: 91vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .pan {
+    background-color: black;
+    width: 140vh;
+    height: 80vh;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+main .pan .painel {
+    background-color: white;
+    width: 60%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.painel .cmd {
+    background-color: black;
+    width: 100%;
+    height: 30%;
+}
+
+
+.painel .cmd img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.painel .cmd h1 {
+    font-weight: 400;
+    font-size: 15px;
+    color: white;
+    display: flex;
+    align-self: center;
+    margin-left: 20px;
+}
+
+.painel .cmd .btn {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.painel .cmd .btn button {
+    margin-left: 5px;
+    width: 80px;
+    height: 30px;
+    border-radius: 8px;
+    border-color: transparent;
+    cursor: pointer;
+}
+
+.painel .cmd .btn .verde {
+    color: white;
+    background-color: green;
+}
+
+.painel .cmd .btn .azul {
+    color: white;
+    background-color: rgb(0, 102, 255);
+}
+
+.painel .cmd .btn .red {
+    color: white;
+    background-color: red;
+}
+
+.painel .console {
+    background-color: black;
+    width: 100%;
+    height: 60%;
+    border: 1px solid black;
+    overflow-y: auto;
+    font-family: monospace;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.painel .console input {
+    width: 83.3vh;
+    background-color: rgb(90, 90, 90);
+    border-color: transparent;
+}
+
+.painel .console #output {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.painel .console #output::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+}
+
+.painel .console #output::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.painel .console #output::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+main .pan .pastas {
+    background-color: white;
+    width: 30%;
+    height: 90%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main .pan .pastas .pasts {
+    width: 90%;
+    height: 90%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main .pan .pastas .pasts .textile {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    border-bottom-color: white;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+main .pan .pastas .pasts .textile h1 {
+    font-size: 15px;
+    margin-left: 20px;
+    color: white;
+}
+
+main .pan .pastas .itempastas {
+    width: 95%;
+    height: 90%;
+    background-color: #777777;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+main .pan .pastas .itempastas img {
+    width: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+main .pan .pastas .itempastas h1 {
+    font-size: 20px;
+}

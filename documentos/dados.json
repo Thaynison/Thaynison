@@ -17,6 +17,36 @@
             "Descricao": "Script de muamba",
             "Valor": "15.000,00",
             "Image": "/imgs/script.png"
+        },
+        "Quatro": {
+            "Nome": "Bot Gerenciador",
+            "Descricao": "Bot de Discord, Gerenciamento de CMD",
+            "Valor": "20.000,00",
+            "Image": "/imgs/script.png"
+        },
+        "Cinco": {
+            "Nome": "Bot de WL",
+            "Descricao": "Bot de Discord, Gerenciamento de WL",
+            "Valor": "20.000,00",
+            "Image": "/imgs/script.png"
+        },
+        "Seis": {
+            "Nome": "Site",
+            "Descricao": "Sistema Penitenciário FiveM",
+            "Valor": "20.000,00",
+            "Image": "/imgs/script.png"
+        },
+        "Sete": {
+            "Nome": "Painel",
+            "Descricao": "Script de painel",
+            "Valor": "20.000,00",
+            "Image": "/imgs/script.png"
+        },
+        "Oito": {
+            "Nome": "Dominação",
+            "Descricao": "Script de dominação",
+            "Valor": "20.000,00",
+            "Image": "/imgs/script.png"
         }
     }
 }

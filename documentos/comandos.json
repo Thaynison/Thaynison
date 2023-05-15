@@ -1,0 +1,16 @@
+{
+    "Comandos": {
+        "Iniciar": {
+            "Title": "Iniciar Sistema",
+            "Codigo": "Iniciar"
+        },
+        "Reiniciar": {
+            "Title": "Reiniciar Sistema",
+            "Codigo": "Reiniciar"
+        },
+        "Parar": {
+            "Title": "Parar Sistema",
+            "Codigo": "Parar"
+        }
+    }
+}

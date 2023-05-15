@@ -44,12 +44,19 @@
     </header>
     <main>
         <button onclick="redirecionarParaLoja()">Loja</button>
+        <button onclick="redirecionarParaPainel()">Painel</button>
         <script>
             function redirecionarParaLoja() {
                 const username = document.getElementById('username').textContent;
                 const userid = document.getElementById('userid').textContent;
                 // window.location.href = `loja.html?username=${encodeURIComponent(username)}`;
                 window.location.href = `loja.html?username=${encodeURIComponent(username)}&userid=${encodeURIComponent(userid)}`;
+            }
+            function redirecionarParaPainel() {
+                const username = document.getElementById('username').textContent;
+                const userid = document.getElementById('userid').textContent;
+                // window.location.href = `loja.html?username=${encodeURIComponent(username)}`;
+                window.location.href = `painel.html?username=${encodeURIComponent(username)}&userid=${encodeURIComponent(userid)}`;
             }
         </script>
     </main>

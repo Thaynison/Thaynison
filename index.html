@@ -13,6 +13,9 @@
         function loginWithDiscord() {
             window.location.href = `https://discord.com/api/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=token&scope=identify`;
         }
+        function entrarDiscord() {
+            window.location.href = `https://discord.gg/MhGkDatFns`;
+        }
     </script>
     <title>Thaynison Community®</title>
 </head>
@@ -22,6 +25,7 @@
             <h1>Thaynison Community®</h1>
         </div>
         <div class="btn">
+            <button onclick="entrarDiscord()"><a>Discord</a></button>
             <button onclick="loginWithDiscord()"><a>Entrar</a></button>
         </div>
     </header>
