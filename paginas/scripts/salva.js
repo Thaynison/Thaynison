@@ -11,9 +11,13 @@ function salvarDados() {
       { nome: 'dados.json', dados: { /* dados dados */ } }
     ];
 
+    // Ocultar o elemento com id "pastDocument"
+    var pastDocument = document.getElementById("pastDocument");
+    pastDocument.style.display = "none";
+
     // Fazer o upload dos arquivos para o repositório no GitHub
     arquivos.forEach(async (arquivo) => {
-      const url = `${repoUrl}/tree/main/documentos/${arquivo.nome}`;
+        const url = `${repoUrl}/tree/main/documentos/${arquivo.nome}`;
 
       try {
         // Converter os dados do arquivo para uma string JSON
@@ -37,4 +41,4 @@ function salvarDados() {
         console.error(`Erro ao salvar o arquivo ${arquivo.nome}:`, error);
       }
     });
-}
+  }
