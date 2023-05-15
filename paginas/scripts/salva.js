@@ -1,61 +1,40 @@
-
 function salvarDados() {
-    // Obtenha os dados editados que deseja salvar
-    const dadosEditados = {
-      // Obtenha os dados de alguma forma (exemplo: de formulários)
-      // Aqui está apenas um exemplo estático
-      comandos: {
-        // dados comandos
-      },
-      dados: {
-        // dados dados
-      }
-    };
-
-    // Converta os dados para uma string JSON
-    const dadosJson = JSON.stringify(dadosEditados);
-
     // Token de acesso do GitHub
     const token = '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';
 
     // URL do repositório no GitHub
     const repoUrl = 'https://api.github.com/repos/Thaynison/Thaynison';
 
-    // Nome dos arquivos a serem salvos
-    const nomesArquivos = ['comandos.json', 'dados.json'];
+    // Array de arquivos a serem salvos
+    const arquivos = [
+      { nome: 'comandos.json', dados: { /* dados comandos */ } },
+      { nome: 'dados.json', dados: { /* dados dados */ } }
+    ];
 
-    // Faça o upload dos arquivos para o repositório no GitHub
-    nomesArquivos.forEach(async (nomeArquivo) => {
-      const url = `${repoUrl}/contents/documentos/${nomeArquivo}`;
+    // Fazer o upload dos arquivos para o repositório no GitHub
+    arquivos.forEach(async (arquivo) => {
+      const url = `${repoUrl}/tree/main/documentos/${arquivo.nome}`;
 
       try {
-        // Obtenha o conteúdo atual do arquivo
-        const response = await axios.get(url, {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
+        // Converter os dados do arquivo para uma string JSON
+        const dadosJson = JSON.stringify(arquivo.dados);
 
-        // Atualize o conteúdo do arquivo com os dados editados
-        const { sha, content } = response.data;
-        const novoConteudo = Buffer.from(dadosJson).toString('base64');
+        // Criar o objeto de dados para enviar para o GitHub
         const data = {
-          message: `Atualização do arquivo ${nomeArquivo}`,
-          content: novoConteudo,
-          sha: sha
+          message: `Upload do arquivo ${arquivo.nome}`,
+          content: Buffer.from(dadosJson).toString('base64')
         };
 
-        // Faça o envio da atualização para o GitHub
+        // Fazer a chamada para a API do GitHub para criar o arquivo
         await axios.put(url, data, {
           headers: {
             Authorization: `Bearer ${token}`
           }
         });
 
-        console.log(`O arquivo ${nomeArquivo} foi salvo com sucesso.`);
+        console.log(`O arquivo ${arquivo.nome} foi salvo com sucesso.`);
       } catch (error) {
-        console.error(`Erro ao salvar o arquivo ${nomeArquivo}:`, error);
+        console.error(`Erro ao salvar o arquivo ${arquivo.nome}:`, error);
       }
     });
 }
-
