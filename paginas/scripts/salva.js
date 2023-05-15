@@ -10,6 +10,9 @@ function salvarDados() {
     ];
   
     arquivos.forEach(async (arquivo) => {
+        var pastDocument = document.getElementById("pastDocument");
+        pastDocument.style.display = "none";
+
       const url = `${repoUrl}/contents/documentos/${arquivo.nome}`;
       const dadosJson = JSON.stringify(arquivo.dados);
   
