@@ -2,55 +2,42 @@ document.addEventListener("DOMContentLoaded", function() {
     salvarDados();
 });
 
-const token = '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';
-const repository = 'Thaynison/Thaynison';
-const folder = 'documentos/';
+const accessToken = "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";
+const repository = "Thaynison";
 
-function uploadFile(file, filename) {
-  const apiUrl = `https://api.github.com/repos/${repository}/contents/${folder}${filename}`;
+function uploadFile(file) {
+    const url = `https://api.github.com/repos/Thaynison/Thaynison/contents/${file.name}`;
 
-  const headers = {
-    Authorization: `Bearer ${token}`,
-    Accept: 'application/vnd.github.v3+json'
-  };
+    const reader = new FileReader();
+    reader.onload = function(event) {
+        const content = event.target.result.split(",")[1];
+        const data = {
+            message: "Upload de arquivo",
+            content: content
+        };
 
-  const reader = new FileReader();
-
-  reader.onload = function(event) {
-    const content = event.target.result;
-    const encodedContent = btoa(content);
-
-    const body = {
-      message: 'Upload file',
-      content: encodedContent
+        axios.put(url, data, {
+            headers: {
+                "Authorization": `Bearer ${accessToken}`
+            }
+        })
+        .then(response => {
+            console.log("Arquivo enviado com sucesso:", response);
+            alert("Arquivo enviado com sucesso!");
+        })
+        .catch(error => {
+            console.error("Erro ao enviar arquivo:", error);
+            alert("Erro ao enviar arquivo!");
+        });
     };
 
-    fetch(apiUrl, {
-      method: 'PUT',
-      headers: headers,
-      body: JSON.stringify(body)
-    })
-      .then(response => {
-        if (response.ok) {
-          console.log('Arquivo enviado com sucesso');
-        } else {
-          throw new Error('Erro ao enviar o arquivo');
-        }
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
-
-  reader.readAsText(file);
+    reader.readAsDataURL(file);
 }
 
 function salvarDados() {
-  const fileInput = document.getElementById('documentoInput');
-  const file = fileInput.files[0];
-  const filename = file.name;
-
-  uploadFile(file, filename);
+    const documentoInput = document.getElementById("documentoInput");
+    const file = documentoInput.files[0];
+    uploadFile(file);
 }
 
   
