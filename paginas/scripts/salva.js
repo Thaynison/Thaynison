@@ -16,7 +16,7 @@ function salvarDados() {
     const dadosJson = JSON.stringify(dadosEditados);
 
     // Token de acesso do GitHub
-    const token = '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';
+    const token = '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';
 
     // URL do repositório no GitHub
     const repoUrl = 'https://api.github.com/repos/Thaynison/Thaynison';
