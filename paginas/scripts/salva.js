@@ -8,7 +8,7 @@ async function uploadArquivo() {
     const nomeArquivo = arquivo.name;
     const conteudoArquivo = await lerConteudoArquivo(arquivo);
 
-    const token = 'seu_token_de_acesso'; // Substitua pelo seu token de acesso do GitHub
+    const token = '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'; // Substitua pelo seu token de acesso do GitHub
     const repositorio = 'Thaynison/Thaynison'; // Substitua pelo nome do repositório
 
     const url = `https://api.github.com/repos/${repositorio}/contents/${nomeArquivo}`;
