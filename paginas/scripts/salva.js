@@ -2,42 +2,59 @@ document.addEventListener("DOMContentLoaded", function() {
     salvarDados();
 });
 
-const accessToken = "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";
-const repository = "Thaynison";
+async function uploadArquivo() {
+    const arquivoInput = document.getElementById('arquivoInput');
+    const arquivo = arquivoInput.files[0];
+    const nomeArquivo = arquivo.name;
+    const conteudoArquivo = await lerConteudoArquivo(arquivo);
 
-function uploadFile(file) {
-    const url = `https://api.github.com/repos/Thaynison/Thaynison/contents/${file.name}`;
+    const token = 'seu_token_de_acesso'; // Substitua pelo seu token de acesso do GitHub
+    const repositorio = 'Thaynison/Thaynison'; // Substitua pelo nome do repositório
 
-    const reader = new FileReader();
-    reader.onload = function(event) {
-        const content = event.target.result.split(",")[1];
-        const data = {
-            message: "Upload de arquivo",
-            content: content
-        };
-
-        axios.put(url, data, {
-            headers: {
-                "Authorization": `Bearer ${accessToken}`
-            }
-        })
-        .then(response => {
-            console.log("Arquivo enviado com sucesso:", response);
-            alert("Arquivo enviado com sucesso!");
-        })
-        .catch(error => {
-            console.error("Erro ao enviar arquivo:", error);
-            alert("Erro ao enviar arquivo!");
-        });
+    const url = `https://api.github.com/repos/${repositorio}/contents/${nomeArquivo}`;
+    const corpoRequisicao = {
+      message: 'Upload de arquivo',
+      content: btoa(conteudoArquivo), // Codifica o conteúdo do arquivo para Base64
     };
 
-    reader.readAsDataURL(file);
-}
+    try {
+      const resposta = await fetch(url, {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(corpoRequisicao),
+      });
 
-function salvarDados() {
-    const documentoInput = document.getElementById("documentoInput");
-    const file = documentoInput.files[0];
-    uploadFile(file);
-}
+      if (resposta.ok) {
+        exibirMensagem('Arquivo enviado com sucesso!');
+      } else {
+        exibirMensagem('Erro ao enviar o arquivo. Verifique o token de acesso e o repositório.');
+      }
+    } catch (erro) {
+      exibirMensagem('Erro ao enviar o arquivo: ' + erro.message);
+    }
+  }
 
+  function lerConteudoArquivo(arquivo) {
+    return new Promise((resolve, reject) => {
+      const leitor = new FileReader();
+
+      leitor.onload = () => {
+        resolve(leitor.result);
+      };
+
+      leitor.onerror = () => {
+        reject(new Error('Erro ao ler o arquivo.'));
+      };
+
+      leitor.readAsText(arquivo);
+    });
+  }
+
+  function exibirMensagem(mensagem) {
+    const mensagemElemento = document.getElementById('mensagem');
+    mensagemElemento.textContent = mensagem;
+  }
   
