@@ -15,7 +15,7 @@ function salvarDados() {
     // Função para criar/atualizar um arquivo no repositório
     async function criarOuAtualizarArquivo(nomeArquivo, conteudoArquivo) {
         
-      const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/tree/main/${pasta}/${nomeArquivo}`;
+      const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${pasta}/${nomeArquivo}`;
   
       // Obter o conteúdo atual do arquivo, se existir
       const response = await fetch(apiUrl);
