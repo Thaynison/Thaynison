@@ -54,12 +54,6 @@
 ![vercel](https://aleen42.github.io/badges/src/illustrator.svg)
 ![vercel](https://aleen42.github.io/badges/src/after_effects.svg)
 
-<p align="center">
-    <a align="center" href="https://cidadepixel.vercel.app" target="blank">
-      <img align="center" src="https://media.discordapp.net/attachments/1033867354070851584/1033867401609097216/banner-gif-baixo.gif"/>
-    </a>
-</p> 
-
 _____
 
 <p align="center">
