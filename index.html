@@ -1,94 +1,134 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="/imgs/logo.png" type="image/png">
-    <script>
-        const CLIENT_ID = '1054105105064013975'; // Insira o seu Client ID do Discord aqui
-        const REDIRECT_URI = 'https://thaynison.vercel.app/paginas/dashboard.html'; // URL de redirecionamento após o login
-    
-        function loginWithDiscord() {
-            window.location.href = `https://discord.com/api/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=token&scope=identify`;
+    <title>Biografia de Thaynison</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #343a40;
+            margin-top: 20px;
         }
-        function entrarDiscord() {
-            window.location.href = `https://discord.gg/MhGkDatFns`;
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid #343a40;
+            margin-bottom: 20px;
         }
-    </script>
-    <title>Thaynison Community®</title>
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #343a40;
+            margin-bottom: 0.5em;
+        }
+
+        .section {
+            padding: 40px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .fact {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .list-unstyled li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .icon-box {
+            margin-right: 10px;
+            color: #007bff;
+        }
+
+        a {
+            color: #007bff;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="txt">
-            <h1>Thaynison Community®</h1>
+    <div class="container">
+        <div class="section text-center">
+            <img src="https://avatars.githubusercontent.com/u/74571396?v=4" alt="Thaynison" class="profile-img">
+            <h1>Thaynison Couto da Silva</h1>
+            <p class="lead">Desenvolvedor | Engenheiro | Tecnólogo | Técnico</p>
         </div>
-        <div class="btn">
-            <button onclick="entrarDiscord()"><a>Discord</a></button>
-            <button onclick="loginWithDiscord()"><a>Entrar</a></button>
-        </div>
-    </header>
-    <main>
-        <div class="box1">
-            <div class="infor">
 
-            </div>
+        <div class="section">
+            <h2><i class="fas fa-user icon-box"></i>Dados Pessoais</h2>
+            <p><strong>Nascido:</strong> 26/03/2002</p>
+            <p><strong>Nacionalidade:</strong> Brasileiro</p>
+            <p><strong>Estado Civil:</strong> Solteiro</p>
+            <p><strong>Habilitação:</strong> A/B</p>
         </div>
-        <div class="box2">
-            <div class="divu">
-                <div class="minbox">
-                    <div class="info">
-                        <img src="imgs/galinha.jpg" alt="">
-                        <h1>Thaynison Couto</h1>
-                    </div>
-                    <div class="texts">
-                        <h1>                            
-                            Olá, seja bem-vindo me chamo  <a href="https://www.instagram.com/cthaynison/">Thaynison Couto</a> e sou membro da <a href="https://discord.gg/MhGkDatFns">Thaynison Community®</a>, um espaço vibrante e acolhedor onde pessoas 
-                            de diferentes origens se unem para compartilhar interesses, conhecimentos e experiências e seus desenvolvimentos.
-                        </h1>
-                    </div>
+
+        <div class="section">
+            <h2><i class="fas fa-code icon-box"></i>Competências Técnicas</h2>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3><i class="fas fa-tools icon-box"></i>Ferramentas e Ambientes</h3>
+                    <p>Git, npm, Yarn, C++, Java, Lua, SAP</p>
+                    <br>
+                    <h3><i class="fas fa-desktop icon-box"></i>Configuração do Ambiente de Trabalho</h3>
+                    <p>macOS, Windows, Visual Studio Code, Vercel</p>
                 </div>
-                <div class="minbox">
-                    <div class="info">
-                        <img src="imgs/galinha.jpg" alt="">
-                        <h1>Thaynison Couto</h1>
-                    </div>
-                    <div class="texts">
-                        <h2>Atualizações:</h2>
-                        <h1>⚡ Sistema de compras on-line;</h1>
-                        <h1>⚡ Sistema de Dashboard on-line;</h1>
-                        <h1>⚡ Sistema de login de Usuários;</h1>
-                    </div>
-                </div>
-                <div class="minbox">
-                    <div class="info">
-                        <img src="imgs/galinha.jpg" alt="">
-                        <h1>Thaynison Couto</h1>
-                    </div>
-                    <div class="texts">
-                        <h2>Atualizações:</h2>
-                        <h1>⚡ Sistema de alertas de ações;</h1>
-                        <h1>⚡ Sistema de licença;</h1>
-                        <h1>⚡ Sistema de relatórios;</h1>
-                    </div>
-                </div>
-                <div class="minbox">
-                    <div class="info">
-                        <img src="imgs/galinha.jpg" alt="">
-                        <h1>Thaynison Couto</h1>
-                    </div>
-                    <div class="texts">
-                        <h2>Atualizações:</h2>
-                        <h1>⚡ Login usando discord;</h1>
-                        <h1>⚡ Envio de webhook;</h1>
-                        <h1>⚡ Sistema de compras online;</h1>
-                    </div>
+                <div class="col-md-6">
+                    <h3><i class="fas fa-server icon-box"></i>Desenvolvimento Back-End</h3>
+                    <p>Node.js, MySQL, PHP</p>
+                    <br>
+                    <h3><i class="fas fa-laptop-code icon-box"></i>Desenvolvimento Front-End</h3>
+                    <p>JavaScript, TypeScript, Next.js, React, HTML, CSS, Bootstrap</p>
                 </div>
             </div>
         </div>
-    </main>
+
+        <div class="section">
+            <h2><i class="fas fa-university icon-box"></i>Educação</h2>
+            <p>Cursando Bacharel em Engenharia Elétrica pela Universidade Multivix</p>
+            <p>Tecnólogo em Análise e Desenvolvimento de Sistemas pela Universidade Multivix</p>
+            <p>Técnico em Eletrotécnica e Automação pelo Sesi Senai</p>
+            <p>Ensino Médio completo pela Escola Misael Pinto Netto</p>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-briefcase icon-box"></i>Experiência Profissional</h2>
+            <p><strong>Desenvolvedor Fullstack Senior - HDTECH-CODE Brasil (2018 - Presente)</strong>: Desenvolvimento de aplicações web fullstack.</p>
+            <p><strong>Auxiliar Administrativo - Empresa Eletro Marques LTDA (10/01/2018 - 05/12/2018)</strong>: Gestão de almoxarifado.</p>
+            <p><strong>Planejador Júnior - Empresa Psi Industrial (27/07/2022 - 29/09/2023)</strong>: Gerenciamento de obras, planejamento e controle administrativo.</p>
+            <p><strong>Planejador Pleno - Empresa Latin America Industrial (02/10/2023 - 15/04/2024)</strong>: Supervisão de projetos, relatórios e atendimento ao cliente.</p>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-heart icon-box"></i>Interesses Pessoais</h2>
+            <ul class="list-unstyled">
+                <li>Desenvolvimento de software</li>
+                <li>Análise de software</li>
+                <li>Criação de jogos 2D para web</li>
+                <li>Contribuição em projetos de código aberto</li>
+            </ul>
+        </div>
+
+        <div class="section text-center">
+            <h2><i class="fas fa-envelope icon-box"></i>Contato</h2>
+            <ul class="list-unstyled">
+                <li><strong>GitHub:</strong> <a href="https://github.com/Thaynison">Thaynison</a></li>
+                <li><strong>Email:</strong> <a href="mailto:cthaynison@gmail.com">cthaynison@gmail.com</a></li>
+                <li><strong>Telefone:</strong> <a href="tel:+5527996631418">(27) 99663-1418</a></li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
-
-
