@@ -3,7 +3,7 @@
 
 - 👨‍💻 Todos os meus projetos estão disponíveis em [https://github.com/Thaynison](https://github.com/Thaynison)
 - 📫 Contato **cthaynison@outlook.com.br**
-- ⚡ Fato aleatório **Sou Planejador Senior**
+- ⚡ Fato aleatório **Sou Analista de Planejamento Senior**
 
 <h3 align="left">Minhas redes sociais:</h3>
 <p align="left">
