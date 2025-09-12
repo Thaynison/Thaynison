@@ -1,162 +1,1755 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currículo Thaynison</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">      
+    <title>Thaynison Couto da Silva - Currículo Profissional</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="icon" href="https://avatars.githubusercontent.com/u/74571396?v=4" type="image/png">
-</head>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
-            color: #343a40;
-            margin-top: 20px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: #f7fafc;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            margin: 0;
+            background: white;
+            position: relative;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 80px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><circle cx="30" cy="30" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .profile-section {
+            position: relative;
+            z-index: 2;
         }
 
         .profile-img {
-            width: 200px;
-            height: 200px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
-            border: 4px solid #343a40;
-            margin-bottom: 20px;
+            border: 6px solid rgba(255,255,255,0.3);
+            margin-bottom: 30px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            cursor: pointer;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            color: #343a40;
-            margin-bottom: 0.5em;
+        .profile-img:hover {
+            transform: scale(1.05);
         }
 
-        .section {
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            opacity: 0;
+            animation: slideInUp 1s ease 0.5s forwards;
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: slideInUp 1s ease 0.7s forwards;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            opacity: 0;
+            animation: slideInUp 1s ease 0.9s forwards;
+        }
+
+        .contact-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 12px 24px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Navigation */
+        .nav-tabs {
+            background: white;
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-tab {
+            padding: 20px 30px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #64748b;
+        }
+
+        .nav-tab:hover {
+            color: #1a1a1a;
+            background: #f8fafc;
+        }
+
+        .nav-tab.active {
+            color: #1a1a1a;
+            border-bottom-color: #1a1a1a;
+            background: #f8fafc;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: #1a1a1a;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        .mobile-menu-toggle i {
+            font-size: 1.2rem;
+        }
+
+        .mobile-sidebar {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 80px 0 20px 0;
+            box-shadow: -5px 0 20px rgba(0,0,0,0.3);
+        }
+
+        .mobile-sidebar.open {
+            right: 0;
+        }
+
+        .mobile-sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-sidebar-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-nav-item {
+            display: block;
+            padding: 20px 30px;
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .mobile-nav-item:hover {
+            background: rgba(255,255,255,0.1);
+            padding-left: 40px;
+        }
+
+        .mobile-nav-item.active {
+            background: rgba(255,255,255,0.2);
+            border-left: 4px solid white;
+        }
+
+        .mobile-nav-item i {
+            margin-right: 15px;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Content Sections */
+        .content {
+            padding: 60px 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            border-radius: 2px;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            margin-bottom: 50px;
+            background: white;
             padding: 40px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            border-radius: 10px;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
         }
 
-        .fact {
-            font-weight: bold;
-            color: #007bff;
+        .skills-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
-        .list-unstyled li {
-            margin-bottom: 10px;
+        .skills-section-title {
+            color: #1a202c;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+
+        .skills-section-title i {
+            color: #1a1a1a;
+            font-size: 1.3rem;
+            width: 30px;
+            text-align: center;
+        }
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-tag {
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .skill-tag.expert {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border-color: #10b981;
+        }
+
+        .skill-tag.expert:hover {
+            background: linear-gradient(135deg, #059669, #047857);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .skill-tag.advanced {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            border-color: #3b82f6;
+        }
+
+        .skill-tag.advanced:hover {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .skill-tag.intermediate {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            border-color: #f59e0b;
+        }
+
+        .skill-tag.intermediate:hover {
+            background: linear-gradient(135deg, #d97706, #b45309);
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 30px;
+            width: 12px;
+            height: 12px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #1a1a1a;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 8px;
+        }
+
+        .company {
+            color: #1a1a1a;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .period {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .job-description {
+            color: #4a5568;
             line-height: 1.6;
         }
 
-        .icon-box {
-            margin-right: 10px;
-            color: #007bff;
+        /* Education Cards */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
         }
 
-        a {
-            color: #007bff;
+        .education-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
-        a:hover {
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .education-card h3 {
+            color: #1a202c;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .education-card .institution {
+            color: #1a1a1a;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* Contact Info */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-item {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+
+        .contact-item h4 {
+            color: #1a202c;
+            margin-bottom: 10px;
+        }
+
+        .contact-item p {
+            color: #64748b;
+        }
+
+        /* Interests */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .interest-item {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .interest-item:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            color: white;
+        }
+
+        .interest-item i {
+            font-size: 2rem;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .interest-item:hover i {
+            color: white;
+        }
+
+        /* Download Button */
+        .download-section {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            background: #f8fafc;
+            border-radius: 16px;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
             text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(26, 26, 26, 0.4);
+        }
+
+        /* Print Styles - Professional Design */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                box-sizing: border-box !important;
+            }
+
+            body {
+                font-family: 'Georgia', 'Times New Roman', serif !important;
+                font-size: 10pt !important;
+                line-height: 1.5 !important;
+                color: #2c3e50 !important;
+                background: white !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 100% !important;
+                height: auto !important;
+            }
+
+            .container {
+                width: 100% !important;
+                max-width: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                background: white !important;
+                display: block !important;
+            }
+
+            /* Hide navigation and mobile elements */
+            .mobile-menu-toggle,
+            .mobile-sidebar,
+            .mobile-sidebar-overlay,
+            .nav-tabs,
+            .download-section {
+                display: none !important;
+            }
+
+            /* Header - Professional Design */
+            .header {
+                background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%) !important;
+                color: white !important;
+                padding: 30pt 20pt !important;
+                text-align: center !important;
+                page-break-inside: avoid !important;
+                margin: 0 !important;
+                width: 100% !important;
+                display: block !important;
+                border-bottom: 3pt solid #1a252f !important;
+            }
+
+            .header::before {
+                display: none !important;
+            }
+
+            .profile-section {
+                display: block !important;
+                position: static !important;
+                z-index: auto !important;
+            }
+
+            .profile-img {
+                width: 80pt !important;
+                height: 80pt !important;
+                border: 3pt solid white !important;
+                margin: 0 auto 15pt auto !important;
+                display: block !important;
+                border-radius: 50% !important;
+            }
+
+            .header h1 {
+                font-size: 24pt !important;
+                font-weight: bold !important;
+                margin: 0 0 8pt 0 !important;
+                color: white !important;
+                animation: none !important;
+                opacity: 1 !important;
+                display: block !important;
+                letter-spacing: 1pt !important;
+                text-shadow: 1pt 1pt 2pt rgba(0,0,0,0.3) !important;
+            }
+
+            .header .subtitle {
+                font-size: 12pt !important;
+                margin: 0 0 15pt 0 !important;
+                color: #ecf0f1 !important;
+                animation: none !important;
+                opacity: 1 !important;
+                display: block !important;
+                font-style: italic !important;
+            }
+
+            .contact-buttons {
+                display: flex !important;
+                justify-content: center !important;
+                gap: 8pt !important;
+                margin: 15pt 0 0 0 !important;
+                animation: none !important;
+                opacity: 1 !important;
+            }
+
+            .contact-btn {
+                display: inline-block !important;
+                background: rgba(255,255,255,0.15) !important;
+                color: white !important;
+                padding: 6pt 12pt !important;
+                border: 1pt solid rgba(255,255,255,0.3) !important;
+                border-radius: 15pt !important;
+                text-decoration: none !important;
+                font-size: 8pt !important;
+                font-weight: 600 !important;
+                margin: 0 !important;
+                backdrop-filter: blur(5pt) !important;
+            }
+
+            /* Content area */
+            .content {
+                padding: 20pt !important;
+                max-width: none !important;
+                margin: 0 !important;
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: column !important;
+            }
+
+            /* Force all tab content to be visible */
+            .tab-content {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                position: static !important;
+                margin-bottom: 25pt !important;
+                page-break-inside: avoid !important;
+                width: 100% !important;
+            }
+
+            /* Section titles */
+            .section-title {
+                font-size: 18pt !important;
+                font-weight: bold !important;
+                color: #2c3e50 !important;
+                margin: 25pt 0 15pt 0 !important;
+                text-align: left !important;
+                border-bottom: 2pt solid #3498db !important;
+                padding-bottom: 6pt !important;
+                page-break-after: avoid !important;
+                display: block !important;
+                width: 100% !important;
+                text-transform: uppercase !important;
+                letter-spacing: 1pt !important;
+                position: relative !important;
+            }
+
+            .section-title::after {
+                content: '' !important;
+                position: absolute !important;
+                bottom: -2pt !important;
+                left: 0 !important;
+                width: 40pt !important;
+                height: 2pt !important;
+                background: #e74c3c !important;
+            }
+
+            /* Skills Section */
+            .skills-section {
+                margin-bottom: 15pt !important;
+                background: #f8f9fa !important;
+                padding: 12pt !important;
+                border-left: 4pt solid #3498db !important;
+                box-shadow: 0 1pt 3pt rgba(0,0,0,0.1) !important;
+                page-break-inside: avoid !important;
+                display: block !important;
+                width: 100% !important;
+            }
+
+            .skills-section-title {
+                font-size: 13pt !important;
+                font-weight: bold !important;
+                color: #2c3e50 !important;
+                margin-bottom: 8pt !important;
+                display: block !important;
+                border-bottom: 1pt solid #bdc3c7 !important;
+                padding-bottom: 4pt !important;
+                text-transform: uppercase !important;
+                letter-spacing: 0.5pt !important;
+            }
+
+            .skills-section-title i {
+                display: none !important;
+            }
+
+            .skills-tags {
+                display: block !important;
+                margin: 0 !important;
+                line-height: 1.8 !important;
+                text-align: justify !important;
+            }
+
+            .skill-tag {
+                display: inline !important;
+                background: none !important;
+                color: #34495e !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                border: none !important;
+                border-radius: 0 !important;
+                font-size: 9pt !important;
+                font-weight: 500 !important;
+            }
+
+            .skill-tag.expert::before {
+                content: "★★★ " !important;
+                color: #27ae60 !important;
+                font-weight: bold !important;
+            }
+
+            .skill-tag.advanced::before {
+                content: "★★☆ " !important;
+                color: #f39c12 !important;
+                font-weight: bold !important;
+            }
+
+            .skill-tag.intermediate::before {
+                content: "★☆☆ " !important;
+                color: #e67e22 !important;
+                font-weight: bold !important;
+            }
+
+            .skill-tag::after {
+                content: " • ";
+                color: #95a5a6 !important;
+                font-weight: normal !important;
+            }
+
+            .skill-tag:last-child::after {
+                content: "" !important;
+            }
+
+            /* Timeline */
+            .timeline {
+                padding-left: 0 !important;
+                margin: 0 !important;
+                display: block !important;
+                width: 100% !important;
+            }
+
+            .timeline::before {
+                display: none !important;
+            }
+
+            .timeline-item {
+                background: #f8f9fa !important;
+                padding: 12pt !important;
+                margin-bottom: 12pt !important;
+                border-left: 4pt solid #e74c3c !important;
+                box-shadow: 0 1pt 3pt rgba(0,0,0,0.1) !important;
+                page-break-inside: avoid !important;
+                display: block !important;
+                width: 100% !important;
+                position: relative !important;
+            }
+
+            .timeline-item::before {
+                display: none !important;
+            }
+
+            .timeline-item::after {
+                content: '' !important;
+                position: absolute !important;
+                top: 12pt !important;
+                left: -8pt !important;
+                width: 8pt !important;
+                height: 8pt !important;
+                background: #e74c3c !important;
+                border-radius: 50% !important;
+                border: 2pt solid white !important;
+            }
+
+            .job-title {
+                font-size: 12pt !important;
+                font-weight: bold !important;
+                color: #2c3e50 !important;
+                margin-bottom: 3pt !important;
+                display: block !important;
+                text-transform: uppercase !important;
+                letter-spacing: 0.5pt !important;
+            }
+
+            .company {
+                font-size: 11pt !important;
+                font-weight: 600 !important;
+                color: #34495e !important;
+                margin-bottom: 3pt !important;
+                display: block !important;
+                font-style: italic !important;
+            }
+
+            .period {
+                font-size: 9pt !important;
+                color: #7f8c8d !important;
+                font-weight: 500 !important;
+                margin-bottom: 8pt !important;
+                display: block !important;
+                background: #ecf0f1 !important;
+                padding: 2pt 6pt !important;
+                border-radius: 3pt !important;
+                display: inline-block !important;
+            }
+
+            .job-description {
+                font-size: 9pt !important;
+                color: #2c3e50 !important;
+                line-height: 1.4 !important;
+                display: block !important;
+                text-align: justify !important;
+                margin-top: 6pt !important;
+            }
+
+            /* Education */
+            .education-grid {
+                display: block !important;
+                width: 100% !important;
+            }
+
+            .education-card {
+                background: #f8f9fa !important;
+                padding: 12pt !important;
+                margin-bottom: 12pt !important;
+                border-left: 4pt solid #9b59b6 !important;
+                box-shadow: 0 1pt 3pt rgba(0,0,0,0.1) !important;
+                page-break-inside: avoid !important;
+                display: block !important;
+                width: 100% !important;
+            }
+
+            .education-card h3 {
+                font-size: 12pt !important;
+                font-weight: bold !important;
+                color: #2c3e50 !important;
+                margin-bottom: 4pt !important;
+                display: block !important;
+                text-transform: uppercase !important;
+                letter-spacing: 0.5pt !important;
+            }
+
+            .education-card .institution {
+                font-size: 10pt !important;
+                font-weight: 600 !important;
+                color: #8e44ad !important;
+                margin-bottom: 6pt !important;
+                display: block !important;
+                font-style: italic !important;
+            }
+
+            .education-card p {
+                font-size: 9pt !important;
+                color: #2c3e50 !important;
+                line-height: 1.4 !important;
+                display: block !important;
+                text-align: justify !important;
+            }
+
+            /* Contact Information */
+            .contact-grid {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 8pt !important;
+                width: 100% !important;
+                margin-bottom: 20pt !important;
+            }
+
+            .contact-item {
+                background: #f8f9fa !important;
+                padding: 8pt !important;
+                border-left: 3pt solid #16a085 !important;
+                box-shadow: 0 1pt 2pt rgba(0,0,0,0.1) !important;
+                text-align: left !important;
+                page-break-inside: avoid !important;
+                display: block !important;
+            }
+
+            .contact-item i {
+                display: none !important;
+            }
+
+            .contact-item h4 {
+                font-size: 9pt !important;
+                font-weight: bold !important;
+                color: #16a085 !important;
+                margin: 0 0 2pt 0 !important;
+                display: block !important;
+                text-transform: uppercase !important;
+                letter-spacing: 0.5pt !important;
+            }
+
+            .contact-item h4::after {
+                content: "" !important;
+            }
+
+            .contact-item p {
+                font-size: 9pt !important;
+                color: #2c3e50 !important;
+                display: block !important;
+                margin: 0 !important;
+                font-weight: 500 !important;
+            }
+
+            /* Interests */
+            .interests-grid {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr 1fr !important;
+                gap: 6pt !important;
+                width: 100% !important;
+                margin-top: 15pt !important;
+            }
+
+            .interest-item {
+                background: #f8f9fa !important;
+                padding: 6pt !important;
+                border-left: 3pt solid #f39c12 !important;
+                box-shadow: 0 1pt 2pt rgba(0,0,0,0.1) !important;
+                text-align: left !important;
+                page-break-inside: avoid !important;
+                display: block !important;
+            }
+
+            .interest-item i {
+                display: none !important;
+            }
+
+            .interest-item h4 {
+                font-size: 8pt !important;
+                font-weight: 600 !important;
+                color: #2c3e50 !important;
+                margin: 0 !important;
+                text-align: left !important;
+                display: block !important;
+                line-height: 1.3 !important;
+            }
+
+            .interest-item h4::before {
+                content: "▶ " !important;
+                color: #f39c12 !important;
+                font-weight: bold !important;
+            }
+
+            /* Print order override - Contact info first */
+            #contact {
+                order: 1 !important;
+                page-break-before: avoid !important;
+            }
+
+            #skills {
+                order: 2 !important;
+                page-break-before: auto !important;
+            }
+
+            #experience-clt {
+                order: 3 !important;
+                page-break-before: auto !important;
+            }
+
+            #experience-pj {
+                order: 4 !important;
+                page-break-before: auto !important;
+            }
+
+            #education {
+                order: 5 !important;
+                page-break-before: auto !important;
+            }
+
+            /* Page breaks */
+            .section-title {
+                page-break-after: avoid !important;
+            }
+
+            .timeline-item,
+            .education-card,
+            .skills-section {
+                page-break-inside: avoid !important;
+            }
+
+            /* Professional footer for each page */
+            @page {
+                margin: 15mm !important;
+                @bottom-center {
+                    content: "Thaynison Couto da Silva - Currículo Profissional" !important;
+                    font-size: 8pt !important;
+                    color: #7f8c8d !important;
+                    font-family: 'Georgia', serif !important;
+                }
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 60px 30px;
+            }
+            
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .content {
+                padding: 40px 30px;
+            }
+            
+            .nav-tabs {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .contact-btn {
+                width: 200px;
+                justify-content: center;
+            }
+            
+            .timeline {
+                padding-left: 20px;
+            }
+            
+            .timeline-item {
+                padding: 20px;
+                margin-bottom: 25px;
+            }
+            
+            .timeline-item::before {
+                left: -27px;
+            }
+            
+            .skills-section {
+                padding: 25px;
+                margin-bottom: 30px;
+            }
+            
+            .skills-section-title {
+                font-size: 1.3rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .skill-tag {
+                padding: 8px 15px;
+                font-size: 0.85rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+            
+            .education-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .education-card {
+                padding: 25px;
+            }
+            
+            .contact-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+            }
+            
+            .contact-item {
+                padding: 20px;
+            }
+            
+            .interests-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
+            
+            .interest-item {
+                padding: 20px;
+            }
+            
+            .download-section {
+                padding: 30px 20px;
+                margin-top: 40px;
+            }
+            
+            .download-btn {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 40px 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .header .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .mobile-sidebar {
+                width: 280px;
+                right: -280px;
+            }
+            
+            .skills-section {
+                padding: 20px;
+            }
+            
+            .timeline-item {
+                padding: 15px;
+            }
+            
+            .job-title {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .interests-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="section text-center">
-            <img src="https://avatars.githubusercontent.com/u/74571396?v=4" alt="Thaynison" class="profile-img">
-            <h1>Thaynison Couto da Silva</h1>
-            <p class="lead">Analista de Planejamento | Gerente de TI | Analista de Sistemas </p>
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Mobile Sidebar -->
+        <div class="mobile-sidebar-overlay" onclick="closeMobileMenu()"></div>
+        <div class="mobile-sidebar">
+            <div class="mobile-nav-item active" onclick="showTabMobile('skills')">
+                <i class="fas fa-code"></i> Competências
+            </div>
+            <div class="mobile-nav-item" onclick="showTabMobile('experience-clt')">
+                <i class="fas fa-briefcase"></i> Experiência CLT
+            </div>
+            <div class="mobile-nav-item" onclick="showTabMobile('experience-pj')">
+                <i class="fas fa-handshake"></i> Experiência PJ
+            </div>
+            <div class="mobile-nav-item" onclick="showTabMobile('education')">
+                <i class="fas fa-graduation-cap"></i> Educação
+            </div>
+            <div class="mobile-nav-item" onclick="showTabMobile('contact')">
+                <i class="fas fa-user"></i> Sobre Mim
+            </div>
         </div>
 
-        <div class="section">
-            <h2><i class="fas fa-user icon-box"></i>Dados Pessoais</h2>
-            <p><strong>Nascido:</strong> 26/03/2002</p>
-            <p><strong>Nacionalidade:</strong> Brasileiro</p>
-            <p><strong>Estado Civil:</strong> Solteiro</p>
-            <p><strong>Habilitação:</strong> A/B</p>
-            <p><strong>Contato:</strong> (27) 99999-5032</p>
-        </div>
-
-        <div class="section">
-            <h2><i class="fas fa-code icon-box"></i>Competências Técnicas</h2>
-            <br>
-            <div class="row">
-                <div class="col-md-6">
-                    <h3><i class="fas fa-tools icon-box"></i>Ferramentas e Ambientes</h3>
-                    <p>Git, npm, Yarn, C++, Java, SAP</p>
-                    <br>
-                    <h3><i class="fas fa-desktop icon-box"></i>Configuração do Ambiente de Trabalho</h3>
-                    <p>macOS, Windows, Visual Studio Code, Vercel</p>
-                    <br>
-                </div>
-                <div class="col-md-6">
-                    <h3><i class="fas fa-server icon-box"></i>Desenvolvimento Back-End</h3>
-                    <p>Node.js, MySQL, PHP, Lua</p>
-                    <br>
-                    <h3><i class="fas fa-laptop-code icon-box"></i>Desenvolvimento Front-End</h3>
-                    <p>JavaScript, TypeScript, Next.js, React, HTML, CSS, Bootstrap</p>
+        <!-- Header -->
+        <div class="header">
+            <div class="profile-section">
+                <img src="https://avatars.githubusercontent.com/u/74571396?v=4" alt="Thaynison Couto da Silva" class="profile-img">
+                <h1>Thaynison Couto da Silva</h1>
+                <p class="subtitle">Analista de Planejamento | Gerente de TI | Desenvolvedor Full Stack Senior</p>
+                <div class="contact-buttons">
+                    <a href="tel:+5527999995032" class="contact-btn">
+                        <i class="fas fa-phone"></i> Ligar
+                    </a>
+                    <a href="mailto:thaynison@email.com" class="contact-btn">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                    <a href="#" class="contact-btn">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
                 </div>
             </div>
         </div>
 
-        <div class="section">
-            <h2><i class="fas fa-university icon-box"></i>Educação</h2>
-            <p><strong>Universidade Multivix</strong>: Bacharelado em Engenharia Elétrica</p>
-            <p><strong>Universidade Multivix</strong>: Tecnólogo em Análise e Desenvolvimento de Sistemas</p>
-            <p><strong>Centro de Treinamento Sesi Senai</strong>: Técnico em Eletrotécnica e Automação</p>
+        <!-- Navigation -->
+        <div class="nav-tabs">
+            <div class="nav-tab active" onclick="showTab('skills')">
+                <i class="fas fa-code"></i> Competências
+            </div>
+            <div class="nav-tab" onclick="showTab('experience-clt')">
+                <i class="fas fa-briefcase"></i> Experiência CLT
+            </div>
+            <div class="nav-tab" onclick="showTab('experience-pj')">
+                <i class="fas fa-handshake"></i> Experiência PJ
+            </div>
+            <div class="nav-tab" onclick="showTab('education')">
+                <i class="fas fa-graduation-cap"></i> Educação
+            </div>
+            <div class="nav-tab" onclick="showTab('contact')">
+                <i class="fas fa-user"></i> Sobre Mim
+            </div>
         </div>
 
-        <div class="section">
-            <h2><i class="fas fa-briefcase icon-box"></i>Experiência Profissional</h2>
-            <p><strong>Auxiliar Administrativo - Eletro Marques LTDA (10/01/2018 - 05/12/2018)</strong>: Responsável pela gestão do almoxarifado, garantindo o controle eficiente de estoques e materiais, além de apoiar em atividades administrativas da empresa.</p>
-            <p><strong>Planejador Júnior - Psi Industrial (27/07/2022 - 29/09/2023)</strong>: Acompanhamento de projetos, criação de relatórios e atendimento ao cliente.</p>
-            <p><strong>Planejador Pleno - Latin America Industrial (02/10/2023 - 15/04/2024)</strong>: Planejamento de projetos elétrica, criação de relatórios e atendimento ao cliente.</p>
-            <p><strong>Planejador Pleno - Estel Serviços Industriais LTDA (25/06/2024 - 10/08/2024)</strong>: Supervisão de projetos de calderaria e solda, criação de relatórios e atendimento ao cliente.</p>
-            <p><strong>Técnico de Planejador Senior - Ampla Engenharia (26/08/2024 - 09/10/2024)</strong>:  Supervisão de projetos de elétrica, Elaboração de orçamentos, gestão de contratos e equipe, criação de relatórios e atendimento ao cliente</p>
-            <p><strong>Analista de Planejamento Júnior - Conmec Industrial (07/11/2024 - 12/11/2024)</strong>:  Planejamento de projetos caldeiraria e solda, criação de relatórios e atendimento ao cliente.</p>
-            <p><strong>Planejador Pleno - Estel Serviços Industriais LTDA (03/02/2025 - Presente)</strong>: Supervisão de projetos de calderaria e solda, criação de relatórios e atendimento ao cliente.</p>
-            <h2><i class="fas fa-info-circle icon-box"></i>Observações</h2>
-            <p>Por motivos pessoais e estratégicos, optei por manter a minha carteira de trabalho registrada com a função de Planejador. Essa escolha reflete não apenas a minha trajetória profissional, 
-                mas também minha dedicação à área de planejamento. É importante ressaltar que todas as minhas experiências anteriores foram adquiridas dentro do campo da gestão de equipes e projetos, onde desenvolvi 
-                habilidades essenciais como liderança, organização e comunicação eficaz. Estou comprometido em aplicar esse conhecimento de forma a contribuir positivamente para qualquer oportunidade que surja.</p>
-        </div>
+        <!-- Content -->
+        <div class="content">
+            <!-- Skills Tab -->
+            <div id="skills" class="tab-content active">
+                <h2 class="section-title">Competências Profissionais</h2>
+                
+                <!-- Technical Skills -->
+                <div class="skills-section">
+                    <h3 class="skills-section-title">
+                        <i class="fas fa-code"></i>
+                        Competências Técnicas
+                    </h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag expert">JavaScript</span>
+                        <span class="skill-tag expert">TypeScript</span>
+                        <span class="skill-tag expert">React</span>
+                        <span class="skill-tag expert">Next.js</span>
+                        <span class="skill-tag expert">HTML5</span>
+                        <span class="skill-tag expert">CSS3</span>
+                        <span class="skill-tag advanced">Node.js</span>
+                        <span class="skill-tag advanced">PHP</span>
+                        <span class="skill-tag advanced">MySQL</span>
+                        <span class="skill-tag advanced">PostgreSQL</span>
+                        <span class="skill-tag expert">Git</span>
+                        <span class="skill-tag expert">GitHub</span>
+                        <span class="skill-tag intermediate">Docker</span>
+                        <span class="skill-tag intermediate">AWS</span>
+                    </div>
+                </div>
 
-        <div class="section">
-            <h2><i class="fas fa-briefcase icon-box"></i>Experiência Paralelas</h2>
-            <ep><strong>Desenvolvedor Fullstack Senior PJ - HDTECH-CODE Brasil (06/05/2018 - 13/05/2025)</strong>: Responsável pelo desenvolvimento e manutenção de aplicações web fullstack, atuando em todas as etapas do ciclo de vida do software, desde o levantamento de requisitos até a implementação e suporte.</p>
-            <ep><strong>Gerente de TI PJ - HDTECH-CODE Brasil (13/01/2025 - Presente)</strong>: Responsável pela liderança estratégica e operacional da equipe de TI, incluindo planejamento de projetos, definição de metas, gestão de infraestrutura e segurança da informação.</p>
-        </div>
+                <!-- Management Skills -->
+                <div class="skills-section">
+                    <h3 class="skills-section-title">
+                        <i class="fas fa-users-cog"></i>
+                        Gestão e Liderança
+                    </h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag expert">Planejamento Industrial</span>
+                        <span class="skill-tag expert">Gestão de Projetos</span>
+                        <span class="skill-tag expert">Liderança de Equipes</span>
+                        <span class="skill-tag advanced">Gestão de TI</span>
+                        <span class="skill-tag advanced">Análise de Processos</span>
+                        <span class="skill-tag advanced">Controle de Qualidade</span>
+                        <span class="skill-tag expert">Atendimento ao Cliente</span>
+                        <span class="skill-tag advanced">Elaboração de Relatórios</span>
+                    </div>
+                </div>
 
-        <div class="section">
-            <h2><i class="fas fa-heart icon-box"></i>Interesses Pessoais</h2>
-            <ul class="list-unstyled">
-                <li>Gestão de Contratos</li>
-                <li>Supervisor de Operações</li>
-                <li>Desenvolvimento de software</li>
-                <li>Análise de software</li>
-                <li>Criação de jogos 2D para web</li>
-                <li>Contribuição em projetos de código aberto</li>
-                <li>Desenvolvimento de aplicações web</li>
-                <li>Desenvolvimento e automação de processos em Excel / Power BI usado VBA</li>
-            </ul>
-        </div>
+                <!-- Industrial Skills -->
+                <div class="skills-section">
+                    <h3 class="skills-section-title">
+                        <i class="fas fa-industry"></i>
+                        Competências Industriais
+                    </h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag expert">Supervisão de Projetos</span>
+                        <span class="skill-tag expert">Calderaria</span>
+                        <span class="skill-tag expert">Solda Industrial</span>
+                        <span class="skill-tag advanced">Projetos Elétricos</span>
+                        <span class="skill-tag advanced">Automação Industrial</span>
+                        <span class="skill-tag intermediate">Eletrotécnica</span>
+                        <span class="skill-tag advanced">Controle de Estoque</span>
+                        <span class="skill-tag advanced">Almoxarifado</span>
+                    </div>
+                </div>
 
-        <div class="section">
-            <p align="center">
-                <a align="center">
-                  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=thaynison&show_icons=true&hide_border=true&count_private=true&theme=vision-friendly-dark&title_color=7159c1&icon_color=7159c1&layout=compact" />
-                </a>
-            </p> 
-        </div>
+                <!-- Tools & Systems -->
+                <div class="skills-section">
+                    <h3 class="skills-section-title">
+                        <i class="fas fa-tools"></i>
+                        Ferramentas e Sistemas
+                    </h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag expert">SAP</span>
+                        <span class="skill-tag expert">VS Code</span>
+                        <span class="skill-tag expert">Microsoft Office</span>
+                        <span class="skill-tag advanced">AutoCAD</span>
+                        <span class="skill-tag intermediate">Figma</span>
+                        <span class="skill-tag advanced">Jira</span>
+                        <span class="skill-tag advanced">Trello</span>
+                        <span class="skill-tag intermediate">Slack</span>
+                    </div>
+                </div>
 
-        <div class="section text-center">
-            <h2><i class="fas fa-envelope icon-box"></i>Contato</h2>
-            <ul class="list-unstyled">
-                <li><strong>GitHub:</strong> <a href="https://github.com/Thaynison">Thaynison</a></li>
-                <li><strong>Email:</strong> <a href="mailto:cthaynison@gmail.com">cthaynison@gmail.com</a></li>
-                <li><strong>Telefone:</strong> <a href="tel:+5527999995032">(27) 99999-5032</a></li>
-            </ul>
+                <!-- Soft Skills -->
+                <div class="skills-section">
+                    <h3 class="skills-section-title">
+                        <i class="fas fa-lightbulb"></i>
+                        Competências Comportamentais
+                    </h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag expert">Comunicação</span>
+                        <span class="skill-tag expert">Trabalho em Equipe</span>
+                        <span class="skill-tag expert">Resolução de Problemas</span>
+                        <span class="skill-tag expert">Adaptabilidade</span>
+                        <span class="skill-tag advanced">Pensamento Analítico</span>
+                        <span class="skill-tag advanced">Criatividade</span>
+                        <span class="skill-tag expert">Organização</span>
+                        <span class="skill-tag advanced">Mentoria</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience CLT Tab -->
+            <div id="experience-clt" class="tab-content">
+                <h2 class="section-title">Experiência CLT</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="job-title">Planejador Pleno</div>
+                        <div class="company">Estel Serviços Industriais LTDA</div>
+                        <div class="period">03/02/2025 - Presente</div>
+                        <div class="job-description">
+                            Supervisão de projetos de calderaria e solda, criação de relatórios e atendimento ao cliente.
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="job-title">Analista de Planejamento Júnior</div>
+                        <div class="company">Conmec Industrial</div>
+                        <div class="period">07/11/2024 - 12/11/2024</div>
+                        <div class="job-description">
+                            Planejamento de projetos caldeiraria e solda, criação de relatórios e atendimento ao cliente.
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="job-title">Técnico de Planejador Senior</div>
+                        <div class="company">Ampla Engenharia</div>
+                        <div class="period">26/08/2024 - 09/10/2024</div>
+                        <div class="job-description">
+                            Supervisão de projetos de elétrica, elaboração de orçamentos, gestão de contratos e equipe, criação de relatórios e atendimento ao cliente.
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="job-title">Planejador Pleno</div>
+                        <div class="company">Estel Serviços Industriais LTDA</div>
+                        <div class="period">25/06/2024 - 10/08/2024</div>
+                        <div class="job-description">
+                            Supervisão de projetos de calderaria e solda, criação de relatórios e atendimento ao cliente.
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="job-title">Planejador Pleno</div>
+                        <div class="company">Latin America Industrial</div>
+                        <div class="period">02/10/2023 - 15/04/2024</div>
+                        <div class="job-description">
+                            Planejamento de projetos elétrica, criação de relatórios e atendimento ao cliente.
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="job-title">Planejador Júnior</div>
+                        <div class="company">Psi Industrial</div>
+                        <div class="period">27/07/2022 - 29/09/2023</div>
+                        <div class="job-description">
+                            Acompanhamento de projetos, criação de relatórios e atendimento ao cliente.
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="job-title">Auxiliar Administrativo</div>
+                        <div class="company">Eletro Marques LTDA</div>
+                        <div class="period">10/01/2018 - 05/12/2018</div>
+                        <div class="job-description">
+                            Responsável pela gestão do almoxarifado, garantindo o controle eficiente de estoques e materiais, além de apoiar em atividades administrativas da empresa.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience PJ Tab -->
+            <div id="experience-pj" class="tab-content">
+                <h2 class="section-title">Experiência PJ</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="job-title">Gerente de TI</div>
+                        <div class="company">HDTECH-CODE Brasil</div>
+                        <div class="period">13/01/2025 - Presente</div>
+                        <div class="job-description">
+                            Responsável pela liderança estratégica e operacional da equipe de TI, incluindo planejamento de projetos, definição de metas, gestão de infraestrutura e segurança da informação.
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="job-title">Desenvolvedor Fullstack Senior</div>
+                        <div class="company">HDTECH-CODE Brasil</div>
+                        <div class="period">06/05/2018 - 13/05/2025</div>
+                        <div class="job-description">
+                            Responsável pelo desenvolvimento e manutenção de aplicações web fullstack, atuando em todas as etapas do ciclo de vida do software, desde o levantamento de requisitos até a implementação e suporte.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education Tab -->
+            <div id="education" class="tab-content">
+                <h2 class="section-title">Formação Acadêmica</h2>
+                <div class="education-grid">
+                    <div class="education-card">
+                        <h3>Bacharelado em Engenharia Elétrica</h3>
+                        <div class="institution">Universidade Multivix</div>
+                        <p>Formação sólida em sistemas elétricos, automação industrial e controle de processos, com foco em soluções tecnológicas inovadoras.</p>
+                    </div>
+
+                    <div class="education-card">
+                        <h3>Tecnólogo em Análise e Desenvolvimento de Sistemas</h3>
+                        <div class="institution">Universidade Multivix</div>
+                        <p>Especialização em desenvolvimento de software, arquitetura de sistemas, banco de dados e metodologias ágeis de desenvolvimento.</p>
+                    </div>
+
+                    <div class="education-card">
+                        <h3>Técnico em Eletrotécnica e Automação</h3>
+                        <div class="institution">Centro de Treinamento Sesi Senai</div>
+                        <p>Formação técnica em sistemas elétricos industriais, automação de processos e manutenção de equipamentos eletrônicos.</p>
+                    </div>
+                </div>
+
+                <!-- <div class="download-section">
+                    <h3 style="margin-bottom: 20px; color: #1a202c;">Interessado no meu perfil?</h3>
+                    <p style="margin-bottom: 30px; color: #64748b;">Baixe meu currículo completo em PDF ou entre em contato diretamente.</p>
+                    <a href="#" class="download-btn" onclick="window.print()">
+                        <i class="fas fa-download"></i>
+                        Baixar Currículo Completo
+                    </a>
+                </div> -->
+            </div>
+
+            <!-- Contact Tab -->
+            <div id="contact" class="tab-content">
+                <h2 class="section-title">Informações Pessoais</h2>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <h4>Telefone</h4>
+                        <p>(27) 99999-5032</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-birthday-cake"></i>
+                        <h4>Data de Nascimento</h4>
+                        <p>26 de Março, 2002</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-flag"></i>
+                        <h4>Nacionalidade</h4>
+                        <p>Brasileiro</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-heart"></i>
+                        <h4>Estado Civil</h4>
+                        <p>Solteiro</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-car"></i>
+                        <h4>Habilitação</h4>
+                        <p>CNH Categoria A/B</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Localização</h4>
+                        <p>Espírito Santo, Brasil</p>
+                    </div>
+                </div>
+
+                <h2 class="section-title" style="margin-top: 60px;">Interesses Profissionais</h2>
+                <div class="interests-grid">
+                    <div class="interest-item">
+                        <i class="fas fa-file-contract"></i>
+                        <h4>Gestão de Contratos</h4>
+                    </div>
+                    <div class="interest-item">
+                        <i class="fas fa-users-cog"></i>
+                        <h4>Supervisão de Operações</h4>
+                    </div>
+                    <div class="interest-item">
+                        <i class="fas fa-code"></i>
+                        <h4>Desenvolvimento de Software</h4>
+                    </div>
+                    <div class="interest-item">
+                        <i class="fas fa-search"></i>
+                        <h4>Análise de Sistemas</h4>
+                    </div>
+                    <div class="interest-item">
+                        <i class="fas fa-gamepad"></i>
+                        <h4>Desenvolvimento de Jogos</h4>
+                    </div>
+                    <div class="interest-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Análise de Dados</h4>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</body>
+
+    <script>
+        // Tab Navigation
+        function showTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Remove active class from nav tabs
+            const navTabs = document.querySelectorAll('.nav-tab');
+            navTabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+            
+            // Animate skill bars if skills tab is selected
+            if (tabName === 'skills') {
+                setTimeout(animateSkillBars, 300);
+            }
+        }
+
+        // Mobile Menu Functions
+        function toggleMobileMenu() {
+            const sidebar = document.querySelector('.mobile-sidebar');
+            const overlay = document.querySelector('.mobile-sidebar-overlay');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('open');
+            
+            // Change icon
+            const icon = toggle.querySelector('i');
+            if (sidebar.classList.contains('open')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        }
+
+        function closeMobileMenu() {
+            const sidebar = document.querySelector('.mobile-sidebar');
+            const overlay = document.querySelector('.mobile-sidebar-overlay');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            sidebar.classList.remove('open');
+            overlay.classList.remove('open');
+            
+            // Reset icon
+            const icon = toggle.querySelector('i');
+            icon.className = 'fas fa-bars';
+        }
+
+        function showTabMobile(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Remove active class from mobile nav items
+            const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+            mobileNavItems.forEach(item => item.classList.remove('active'));
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+            
+            // Close mobile menu
+            closeMobileMenu();
+            
+            // Scroll to content
+            document.querySelector('.content').scrollIntoView({
+                behavior: 'smooth'
+            });
+            
+            // Animate skill bars if skills tab is selected
+            if (tabName === 'skills') {
+                setTimeout(animateSkillBars, 300);
+            }
+        }
+
+        // Animate skill bars
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = width + '%';
+            });
+        }
+
+        // Initialize animations on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate skill bars on initial load
+            setTimeout(animateSkillBars, 1000);
+            
+            // Add hover effects to timeline items
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.borderLeft = '4px solid #1a1a1a';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.borderLeft = '1px solid #e2e8f0';
+                });
+            });
+
+            // Add click effects to cards
+            const cards = document.querySelectorAll('.skill-category, .education-card, .contact-item, .interest-item');
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelector('.content').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Print functionality
+        function printResume() {
+            window.print();
+        }
+
+        // Add typing effect to subtitle
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect
+        setTimeout(() => {
+            const subtitle = document.querySelector('.subtitle');
+            const originalText = subtitle.textContent;
+            typeWriter(subtitle, originalText, 50);
+        }, 1500);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97db455701b0f5ce',t:'MTc1NzYzNjc2MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
